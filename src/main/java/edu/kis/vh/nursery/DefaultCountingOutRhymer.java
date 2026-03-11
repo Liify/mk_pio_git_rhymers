@@ -6,27 +6,27 @@ public class DefaultCountingOutRhymer {
 
     public int total = -1;
 
-    public void countIn(int in) {
-        if (!isFull())
+    public void CountIn(int in) {
+        if (!IsFull())
             NUMBERS[++total] = in;
     }
 
-    public boolean callCheck() {
+    public boolean CallCheck() {
         return total == -1;
     }
 
-    public boolean isFull() {
+    public boolean IsFull() {
         return total == 11;
     }
 
-    protected int peekaboo() {
-        if (callCheck())
+    protected int Peekaboo() {
+        if (CallCheck())
             return -1;
         return NUMBERS[total];
     }
 
-    public int countOut() {
-        if (callCheck())
+    public int CountOut() {
+        if (CallCheck())
             return -1;
         return NUMBERS[total--];
     }
