@@ -4,7 +4,6 @@ public class FifoRhymer extends DefaultCountingOutRhymer {
 
     public DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
 
-    @Override
     public int CountOut() {
         while (!CallCheck())
             temp.CountIn(super.CountOut());
