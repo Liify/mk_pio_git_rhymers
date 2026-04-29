@@ -10,7 +10,8 @@ public class DefaultCountingOutRhymer {
 
     private final int[] numbers = new int[VAL];
 
-    public int total = RET;
+    private int total = RET;
+    public int getTotal() { return total; }
 
     /**
      * Dodaje nową wartość do wyliczanki.
