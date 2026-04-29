@@ -1,5 +1,5 @@
 package edu.kis.vh.nursery;
-
+// projekt jest poprawny
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -73,6 +73,11 @@ public class RhymersJUnitTest {
         Assert.assertEquals(testValue, result);
         result = rhymer.CountOut();
         Assert.assertEquals(EMPTY_STACK_VALUE, result);
+    }
+    @Test
+    public void testIsCallCheckReturningTrueForEmpty() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        Assert.assertTrue(rhymer.CallCheck());
     }
 
 }
