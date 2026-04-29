@@ -1,78 +1,83 @@
 package edu.kis.vh.nursery;
-
+// projekt jest poprawny
 import org.junit.Assert;
 import org.junit.Test;
 
 public class RhymersJUnitTest {
 
-	@Test
-	public void testCountIn() {
-		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
-		int testValue = 4;
-		rhymer.countIn(testValue);
+    @Test
+    public void testCountIn() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        int testValue = 4;
+        rhymer.CountIn(testValue);
 
-		int result = rhymer.peekaboo();
-		Assert.assertEquals(testValue, result);
-	}
+        int result = rhymer.Peekaboo();
+        Assert.assertEquals(testValue, result);
+    }
 
-	@Test
-	public void testCallCheck() {
-		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
-		boolean result = rhymer.callCheck();
-		Assert.assertEquals(true, result);
+    @Test
+    public void testCallCheck() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        boolean result = rhymer.CallCheck();
+        Assert.assertEquals(true, result);
 
-		rhymer.countIn(888);
+        rhymer.CountIn(888);
 
-		result = rhymer.callCheck();
-		Assert.assertEquals(false, result);
-	}
+        result = rhymer.CallCheck();
+        Assert.assertEquals(false, result);
+    }
 
-	@Test
-	public void testIsFull() {
-		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
-		final int STACK_CAPACITY = 12;
-		for (int i = 0; i < STACK_CAPACITY; i++) {
-			boolean result = rhymer.isFull();
-			Assert.assertEquals(false, result);
-			rhymer.countIn(888);
-		}
+    @Test
+    public void testIsFull() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        final int STACK_CAPACITY = 12;
+        for (int i = 0; i < STACK_CAPACITY; i++) {
+            boolean result = rhymer.IsFull();
+            Assert.assertEquals(false, result);
+            rhymer.CountIn(888);
+        }
 
-		boolean result = rhymer.isFull();
-		Assert.assertEquals(true, result);
-	}
+        boolean result = rhymer.IsFull();
+        Assert.assertEquals(true, result);
+    }
 
-	@Test
-	public void testPeekaboo() {
-		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+    @Test
+    public void testPeekaboo() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        final int EMPTY_STACK_VALUE = -1;
 
-		int result = rhymer.peekaboo();
-		Assert.assertEquals(EMPTY_STACK_VALUE, result);
+        int result = rhymer.Peekaboo();
+        Assert.assertEquals(EMPTY_STACK_VALUE, result);
 
-		int testValue = 4;
-		rhymer.countIn(testValue);
+        int testValue = 4;
+        rhymer.CountIn(testValue);
 
-		result = rhymer.peekaboo();
-		Assert.assertEquals(testValue, result);
-		result = rhymer.peekaboo();
-		Assert.assertEquals(testValue, result);
-	}
+        result = rhymer.Peekaboo();
+        Assert.assertEquals(testValue, result);
+        result = rhymer.Peekaboo();
+        Assert.assertEquals(testValue, result);
+    }
 
-	@Test
-	public void testCountOut() {
-		defaultCountingOutRhymer rhymer = new defaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+    @Test
+    public void testCountOut() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        final int EMPTY_STACK_VALUE = -1;
 
-		int result = rhymer.countOut();
-		Assert.assertEquals(EMPTY_STACK_VALUE, result);
+        int result = rhymer.CountOut();
+        Assert.assertEquals(EMPTY_STACK_VALUE, result);
 
-		int testValue = 4;
-		rhymer.countIn(testValue);
+        int testValue = 4;
+        rhymer.CountIn(testValue);
 
-		result = rhymer.countOut();
-		Assert.assertEquals(testValue, result);
-		result = rhymer.countOut();
-		Assert.assertEquals(EMPTY_STACK_VALUE, result);
-	}
+        result = rhymer.CountOut();
+        Assert.assertEquals(testValue, result);
+        result = rhymer.CountOut();
+        Assert.assertEquals(EMPTY_STACK_VALUE, result);
+    }
+    @Test
+    public void testIsCallCheckReturningTrueForEmpty() {
+        DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+        Assert.assertTrue(rhymer.CallCheck());
+    }
 
 }
