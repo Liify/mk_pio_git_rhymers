@@ -5,18 +5,16 @@ public class HanoiRhymer extends DefaultCountingOutRhymer {
     private int totalRejected = 0;
     public int getTotalRejected() { return totalRejected; }
 
-    public int ReportRejected() {
+    public int reportRejected() {
         return totalRejected;
     }
 
     @Override
-    public void CountIn(int in) {
-        if (!CallCheck() && in > Peekaboo()) {
+    public void countIn(int in) {
+        if (!callCheck() && in > peekaboo()) {
             totalRejected++;
-        }
-
-        else {
-            super.CountIn(in);
+        } else {
+            super.countIn(in);
         }
     }
 }

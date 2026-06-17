@@ -7,10 +7,11 @@ public class DefaultCountingOutRhymer {
     public static final int VAL = 12;
     public static final int RET = -1;
     public static final int VAL2 = 11;
+    public static final int EMPTY = -1;
 
     private final int[] numbers = new int[VAL];
 
-    private int total = RET;
+    private int total = EMPTY;
     public int getTotal() { return total; }
 
     /**
@@ -18,8 +19,8 @@ public class DefaultCountingOutRhymer {
      *
      * @param in wartość do dodania
      */
-    public void CountIn(int in) {
-        if (!IsFull())
+    public void countIn(int in) {
+        if (!isFull())
             numbers[++total] = in;
     }
 
@@ -28,8 +29,8 @@ public class DefaultCountingOutRhymer {
      *
      * @return true jeśli pusta, w przeciwnym razie false
      */
-    public boolean CallCheck() {
-        return total == RET;
+    public boolean callCheck() {
+        return total == EMPTY;
     }
 
     /**
@@ -37,7 +38,7 @@ public class DefaultCountingOutRhymer {
      *
      * @return true jeśli pełna, w przeciwnym razie false
      */
-    public boolean IsFull() {
+    public boolean isFull() {
         return total == VAL2;
     }
 
@@ -46,8 +47,8 @@ public class DefaultCountingOutRhymer {
      *
      * @return ostatnia wartość lub -1 (RET) jeśli wyliczanka jest pusta
      */
-    protected int Peekaboo() {
-        if (CallCheck())
+    protected int peekaboo() {
+        if (callCheck())
             return RET;
         return numbers[total];
     }
@@ -57,8 +58,8 @@ public class DefaultCountingOutRhymer {
      *
      * @return usunięta wartość lub -1 (RET) jeśli wyliczanka jest pusta
      */
-    public int CountOut() {
-        if (CallCheck())
+    public int countOut() {
+        if (callCheck())
             return RET;
         return numbers[total--];
     }
